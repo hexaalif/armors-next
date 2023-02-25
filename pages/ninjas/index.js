@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../../styles/Armors.module.css";
 
 export const getStaticProps = async () => {
@@ -14,11 +15,9 @@ const armors = ({ arms }) => {
     <div>
       <h1>Armors</h1>
       {arms.map((arm) => (
-        <div key={arm.id}>
-          <a className={styles.single}>
-            <h3>{arm.name}</h3>
-          </a>
-        </div>
+        <Link href={"/ninjas/" + arm.id} key={arm.id}>
+          <h3 className={styles.single}>{arm.name}</h3>
+        </Link>
       ))}
     </div>
   );
